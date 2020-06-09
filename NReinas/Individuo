@@ -1,0 +1,86 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package nReinas;
+
+import java.util.Random;
+
+/**
+ *
+ * @author Haide
+ */
+public class Individuo {
+   private int genotipo[];
+    private int fitness;
+    private int n;
+    
+
+    public Individuo(int n) {
+        this.n = n;
+        this.genotipo = generarGenotipoAleatorio();
+         calcularFitness();
+    }
+    public Individuo(int genotipo[]){
+         this.n = genotipo.length;
+         this.genotipo = genotipo.clone();
+         calcularFitness();
+    }
+    private int[] generarGenotipoAleatorio() {
+        int aux [] = new int[this.n];
+        Random ran = new Random();
+        for(int x=0; x<aux.length;x++)
+            aux[x]= ran.nextInt(this.n);
+        return aux;
+
+    }
+    public void actualizarIndividuo(){
+    
+       calcularFitness();
+    }
+   
+
+    /**
+     * @return the genotipo
+     */
+    public int[] getGenotipo() {
+        return genotipo;
+    }
+
+
+    /**
+     * @return the fitness
+     */
+    public int getFitness() {
+        return fitness;
+    }
+
+    public void calcularFitness() {
+        this.fitness = 0;
+      int lon = this.n -1;
+    for(int f=0; f<lon; f++){
+        for(int c=f+1; c<this.n; c++){
+            
+                int ataq_f = this.genotipo[f];
+                int ataq_c = this.genotipo[c];
+                
+                int ataq1_f = this.genotipo[f]-f;
+                int ataq1_c = this.genotipo[c]-c;
+                
+                int ataq2_f = this.genotipo[f]+f;
+                int ataq2_c = this.genotipo[c]+c;
+                  
+                
+                    
+                
+
+                if(ataq2_f==ataq2_c||ataq1_c==ataq1_c||ataq_f==ataq_c){
+                this.fitness += 2;
+                    }
+            }
+        }
+       
+            
+    }
+}
