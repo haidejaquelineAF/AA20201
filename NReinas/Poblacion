@@ -1,0 +1,60 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package nReinas;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Random;
+
+/**
+ *
+ * @author Haide
+ */
+public class Poblacion {
+   private LinkedList<Individuo> poblacion;
+    private int i;
+
+    public Poblacion(int i, int n){
+        this.i = i;
+        this.poblacion = new LinkedList<>();
+        inicializarAleatorimente(n);
+    }
+
+  
+    public Poblacion(LinkedList<Individuo> muestra, int i){
+        this.poblacion = new LinkedList<>();
+        for(int x=0;x<muestra.size();x++){
+            this.poblacion.add(new Individuo(muestra.get(x).getGenotipo()));
+        }
+    }
+
+
+      public Poblacion(){
+        this.poblacion = new LinkedList<>();    
+    }
+
+    public Poblacion(Poblacion n){
+        this.poblacion = new LinkedList<>();
+        for(Individuo aux: n.getPoblacion()){
+            this.poblacion.add(new Individuo(aux.getGenotipo()));
+
+        }
+
+    }
+
+    public void inicializarAleatorimente(int n){
+       for(int x=0; x< this.i; x++){
+            this.poblacion.add(new Individuo(n));
+       }
+    }
+    
+
+    
+   
+   public LinkedList<Individuo> getPoblacion(){
+    return poblacion;
+   }
+}
