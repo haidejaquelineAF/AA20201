@@ -1,0 +1,53 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package prob_Boolean;
+
+/**
+ *
+ * @author Haide
+ */
+public class clausulas{
+    private int ClausulaA;
+    private int ClausulaB;
+    private int ClausulaC;
+
+///Constructor///    
+public clausulas(int Ca, int Cb, int Cc) {
+    this.ClausulaA = Ca;
+    this.ClausulaB = Cb;
+    this.ClausulaC = Cc;
+}
+
+
+///GETTERS Y SETTERS///
+
+    public int getClausulaA() {
+        return ClausulaA;
+    }
+
+    public void setClausulaA(int ClausulaA) {
+        this.ClausulaA = ClausulaA;
+    }
+
+    public int getClausulaB() {
+        return ClausulaB;
+    }
+
+    public void setClausulaB(int ClausulaB) {
+        this.ClausulaB = ClausulaB;
+    }
+
+    public int getClausulaC() {
+        return ClausulaC;
+    }
+
+    public void setClausulaC(int ClausulaC) {
+        this.ClausulaC = ClausulaC;
+    }
+
+    
+    
+}
